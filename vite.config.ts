@@ -10,5 +10,5 @@ export default defineConfig({
     emptyOutDir: true,
     rollupOptions: { output: { manualChunks: { ethers: ["ethers"], react: ["react", "react-dom"] } } },
   },
-  test: { root: "." },
+  test: { root: ".", include: ["frontend/src/**/*.test.{mjs,ts}"] },
 });
