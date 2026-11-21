@@ -1,0 +1,42 @@
+{
+  "name": "medchain",
+  "version": "1.0.0",
+  "description": "Patient-controlled, end-to-end encrypted medical records on Ethereum",
+  "scripts": {
+    "dev": "concurrently -k -n chain,app -c cyan,magenta \"hardhat node --hostname 127.0.0.1\" \"wait-on -t 60000 tcp:127.0.0.1:8545 && SEED=1 hardhat run scripts/deploy.js --network localhost && vite\"",
+    "chain": "hardhat node --hostname 127.0.0.1",
+    "deploy": "hardhat run scripts/deploy.js --network localhost",
+    "deploy:seed": "SEED=1 hardhat run scripts/deploy.js --network localhost",
+    "compile": "hardhat compile",
+    "test": "hardhat test && vitest run",
+    "typecheck": "tsc -p .",
+    "build": "vite build"
+  },
+  "license": "MIT",
+  "type": "commonjs",
+  "devDependencies": {
+    "@nomicfoundation/hardhat-chai-matchers": "^2.0.8",
+    "@nomicfoundation/hardhat-ethers": "^3.0.8",
+    "@nomicfoundation/hardhat-network-helpers": "^1.0.12",
+    "@types/react": "^18.3.23",
+    "@types/react-dom": "^18.3.7",
+    "@vitejs/plugin-react": "^4.5.2",
+    "chai": "^4.5.0",
+    "concurrently": "^9.2.5",
+    "ethers": "^6.13.5",
+    "hardhat": "^2.22.19",
+    "typescript": "^5.8.3",
+    "vite": "^6.3.5",
+    "vitest": "^3.2.4",
+    "wait-on": "^8.0.5"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "tweetnacl": "^1.0.3"
+  },
+  "private": true,
+  "engines": {
+    "node": ">=20"
+  }
+}
